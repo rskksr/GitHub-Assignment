@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validate() {
+            var TCode = document.querySelector("#alphanum").value;
+            for (var i = 0; i < TCode.length; i++) {
+                var char1 = TCode.charAt(i);
+                var cc = char1.charCodeAt(0);
+
+                if ((cc > 47 && cc < 58) || (cc > 64 && cc < 91) || (cc > 96 && cc < 123)) {
+                }
+                else {
+                    alert("Entered value is not alphanumeric");
+                    return false;
+                }
+            }
+            var cCode= document.querySelector("#charnum").value;
+            if(cCode.length<5){
+                alert("Please enter at least 2 characters");
+            }
+            var emailCode=document.querySelector("#email").value;
+            var mailformat =/^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;;
+            if(!emailCode.match(mailformat)){
+                alert("Please enter a valid email");
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <label for="alphanum">Please enter an alphanumeric value: </label>
+    <input type="text" name="alphanum" id="alphanum"><br>
+    <label for="charnum">Please enter atleast 2 characters </label>
+    <input type="text" name="charnum" id="charnum"><br>
+    <label for="email">Please enter your email</label>
+    <input type="text" name="email" id="email"><br>
+    <button onclick="validate()">Validate</button>
+</body>
+
+</html>
